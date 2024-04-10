@@ -1,0 +1,602 @@
+openapi: 3.1.0
+x-stoplight:
+  id: ckzecuqk7350e
+info:
+  title: playlist
+  version: 1.0.0
+servers:
+  - url: "http://localhost/"
+paths:
+  /users:
+    post:
+      tags:
+        - users
+      summary: Add a new user
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+        required: true
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+      x-stoplight:
+        id: 1myrea1vuazjb
+    get:
+      tags:
+        - users
+      summary: get user list
+      operationId: listUsers
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+      x-stoplight:
+        id: 24u3w63t4wp8o
+  /users/login:
+    post:
+      tags:
+        - users
+      summary: Login
+      operationId: login
+      requestBody:
+        description: Login user
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginRequest"
+        required: true
+      responses:
+        "200":
+          description: successful operation
+      x-stoplight:
+        id: llh6s5jlmsz0z
+  "/users/{id}":
+    get:
+      tags:
+        - users
+      summary: Get user by user id
+      description: ""
+      operationId: getUser
+      parameters:
+        - name: id
+          in: path
+          description: "The name that needs to be fetched. Use user1 for testing. "
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "400":
+          description: Invalid username supplied
+        "404":
+          description: User not found
+      x-stoplight:
+        id: gy4s27q02twzu
+    put:
+      tags:
+        - users
+      summary: Update user
+      description: This can only be done by the logged in user.
+      operationId: updateUser
+      parameters:
+        - name: id
+          in: path
+          description: name that need to be deleted
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Update an existent user in the store
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        default:
+          description: successful operation
+      x-stoplight:
+        id: wlpar8whg9z2l
+    delete:
+      tags:
+        - users
+      summary: Delete user
+      description: This can only be done by the logged in user.
+      operationId: deleteUser
+      parameters:
+        - name: id
+          in: path
+          description: The name that needs to be deleted
+          required: true
+          schema:
+            type: string
+      responses:
+        "400":
+          description: Invalid username supplied
+        "404":
+          description: User not found
+      x-stoplight:
+        id: ge3i4c6g5dsiy
+  /artists:
+    post:
+      tags:
+        - artists
+      summary: Add a new artist
+      operationId: createArtist
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Artist"
+        required: true
+      responses:
+        "200":
+          description: ""
+      x-stoplight:
+        id: 0oh9ay6ih4mg2
+    get:
+      tags:
+        - artists
+      summary: get artist list
+      operationId: listArtists
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Artist"
+              examples:
+                Example 1:
+                  value:
+                    - id: "1"
+                      name: 浜崎あゆみ
+                      description: 日本の女性ポップシンガーソングライター。1990年代後半から2000年代にかけて多くのヒット曲を生み出し、日本の音楽シーンに多大な影響を与えた。
+                    - id: "2"
+                      name: 米津玄師
+                      description: 日本の男性シンガーソングライター、音楽プロデューサー。独特の音楽スタイルと視覚的表現で知られ、多くのファンを持つ。
+                    - id: "3"
+                      name: 宇多田ヒカル
+                      description: 日本を代表する女性シンガーソングライターの一人。彼女のデビューアルバム「First Love」は日本のアルバム売上記録を持っている。
+                    - id: "4"
+                      name: RADWIMPS
+                      description: 日本のロックバンド。独自の歌詞とメロディーで若者を中心に人気があり、アニメ映画「君の名は。」の主題歌で国際的にも知名度を上げた。
+                    - id: "5"
+                      name: あいみょん
+                      description: 日本の女性シンガーソングライター。心に響く歌詞とメロディーで幅広い世代から支持を受けている。
+                    - id: "6"
+                      name: Perfume
+                      description: 日本のテクノポップユニット。独特の音楽スタイルと先進的なパフォーマンスで国内外から高い評価を受けている。
+                    - id: "7"
+                      name: King Gnu
+                      description: 日本のロックバンド。ジャンルにとらわれない音楽性で、若い世代を中心に人気を集めている。
+                    - id: "8"
+                      name: 椎名林檎
+                      description: 日本の女性シンガーソングライター、音楽プロデューサー。個性的な歌声と音楽性で独自の地位を築いている。
+                    - id: "9"
+                      name: Mr.Children
+                      description: 日本のロックバンド。1990年代から続く長いキャリアを通じて、多くのヒット曲を世に送り出している。
+                    - id: "10"
+                      name: 宮本浩次
+                      description: エレファントカシマシのボーカルとして知られる日本のシンガーソングライター。力強い歌声と熱いライブパフォーマンスで知られている。
+                    - id: "11"
+                      name: BUMP OF CHICKEN
+                      description: 日本のロックバンド。深い歌詞と印象的なメロディーで多くのファンを持つ。
+                    - id: "12"
+                      name: back number
+                      description: 日本の3ピースロックバンド。切ない歌詞とメロディーで、恋愛ソングの定番とされている。
+                    - id: "13"
+                      name: SEKAI NO OWARI
+                      description: 日本のポップバンド。ファンタジックな世界観とキャッチーな楽曲で、国内外で人気を博している。
+                    - id: "14"
+                      name: LiSA
+                      description: アニメソングを中心に活躍する日本の女性シンガー。力強い歌声とエネルギッシュなパフォーマンスで多くの支持を得ている。
+                    - id: "15"
+                      name: 乃木坂46
+                      description: 日本の女性アイドルグループ。清楚なイメージとキャッチーな楽曲で、国内のアイドルシーンを牽引している。
+      x-stoplight:
+        id: 1uvnnmdvu1pkg
+  "/artists/{id}":
+    get:
+      tags:
+        - artists
+      summary: Get artist by artist id
+      description: ""
+      operationId: getArtist
+      parameters:
+        - name: id
+          in: path
+          description: "The name that needs to be fetched. Use artist1 for testing. "
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Artist"
+        "400":
+          description: Invalid artistname supplied
+        "404":
+          description: Artist not found
+      x-stoplight:
+        id: o0c6islp800ag
+    put:
+      tags:
+        - artists
+      summary: Update artist
+      description: This can only be done by the logged in artist.
+      operationId: updateArtist
+      parameters:
+        - name: id
+          in: path
+          description: name that need to be deleted
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Update an existent artist in the store
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Artist"
+      responses:
+        default:
+          description: successful operation
+      x-stoplight:
+        id: sy6uz85hakcdu
+    delete:
+      tags:
+        - artists
+      summary: Delete artist
+      description: This can only be done by the logged in artist.
+      operationId: deleteArtist
+      parameters:
+        - name: id
+          in: path
+          description: The name that needs to be deleted
+          required: true
+          schema:
+            type: string
+      responses:
+        "400":
+          description: Invalid artistname supplied
+        "404":
+          description: Artist not found
+      x-stoplight:
+        id: cef7hoxiznccd
+  /songs:
+    post:
+      tags:
+        - songs
+      summary: Add a new song
+      operationId: createSong
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Song"
+        required: true
+      responses:
+        "200":
+          description: ""
+      x-stoplight:
+        id: hy8uv70nq94gd
+    get:
+      tags:
+        - songs
+      summary: get song list
+      operationId: listSongs
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Song"
+              examples:
+                Example 1:
+                  value:
+                    - id: "1"
+                      name: 夜空の彼方へ
+                      description: 浜崎あゆみが歌う、失った恋の記憶を夜空に重ね合わせたバラード。
+                      artist:
+                        id: "1"
+                        name: 浜崎あゆみ
+                        description: 日本の女性ポップシンガーソングライター。1990年代後半から2000年代にかけて多くのヒット曲を生み出し、日本の音楽シーンに多大な影響を与えた。
+                    - id: "2"
+                      name: レモンの季節
+                      description: 米津玄師の切なくも爽やかな恋の歌。失った愛をレモンの香りに例え、心に残る後味を描写。
+                      artist:
+                        id: "2"
+                        name: 米津玄師
+                        description: 日本の男性シンガーソングライター、音楽プロデューサー。独特の音楽スタイルと視覚的表現で知られ、多くのファンを持つ。
+                    - id: "3"
+                      name: Automatic - 未来への扉
+                      description: 宇多田ヒカルが贈る、未来への希望と恐れをテーマにした力強いメッセージソング。
+                      artist:
+                        id: "3"
+                        name: 宇多田ヒカル
+                        description: 日本を代表する女性シンガーソングライターの一人。彼女のデビューアルバム「First Love」は日本のアルバム売上記録を持っている。
+                    - id: "4"
+                      name: 前夜、無限の城
+                      description: RADWIMPSによる、壮大なスケールで描かれる冒険と友情の物語。
+                      artist:
+                        id: "4"
+                        name: RADWIMPS
+                        description: 日本のロックバンド。独自の歌詞とメロディーで若者を中心に人気があり、アニメ映画「君の名は。」の主題歌で国際的にも知名度を上げた。
+                    - id: "5"
+                      name: 君と夏の終わり
+                      description: あいみょんが歌う、夏の終わりの切なさと新たな始まりの予感を描いた楽曲。
+                      artist:
+                        id: "5"
+                        name: あいみょん
+                        description: 日本の女性シンガーソングライター。心に響く歌詞とメロディーで幅広い世代から支持を受けている。
+                    - id: "6"
+                      name: 光のダンス
+                      description: Perfumeが奏でる、先進的なサウンドと光の演出が融合した未来型ダンスナンバー。
+                      artist:
+                        id: "6"
+                        name: Perfume
+                        description: 日本のテクノポップユニット。独特の音楽スタイルと先進的なパフォーマンスで国内外から高い評価を受けている。
+                    - id: "7"
+                      name: 静かなる革命
+                      description: King Gnuによる、社会への静かなる抵抗と変革をテーマにした力強い楽曲。
+                      artist:
+                        id: "7"
+                        name: King Gnu
+                        description: 日本のロックバンド。ジャンルにとらわれない音楽性で、若い世代を中心に人気を集めている。
+                    - id: "8"
+                      name: 東京事変
+                      description: 椎名林檎が綴る、東京の喧騒と人々の生活を描いた物語性の強い楽曲。
+                      artist:
+                        id: "8"
+                        name: 椎名林檎
+                        description: 日本の女性シンガーソングライター、音楽プロデューサー。個性的な歌声と音楽性で独自の地位を築いている。
+                    - id: "9"
+                      name: 未来へのカウントダウン
+                      description: Mr.Childrenが贈る、希望を歌に込めた心温まるメッセージソング。
+                      artist:
+                        id: "9"
+                        name: Mr.Children
+                        description: 日本のロックバンド。1990年代から続く長いキャリアを通じて、多くのヒット曲を世に送り出している。
+                    - id: "10"
+                      name: 風を感じて
+                      description: 宮本浩次の熱い思いが込められた、生きる力を感じさせるロックナンバー。
+                      artist:
+                        id: "10"
+                        name: 宮本浩次
+                        description: エレファントカシマシのボーカルとして知られる日本のシンガーソングライター。力強い歌声と熱いライブパフォーマンスで知られている。
+                    - id: "11"
+                      name: 宇宙の旅路
+                      description: BUMP OF CHICKENが奏でる、宇宙を旅する幻想的な物語と深い歌詞の楽曲。
+                      artist:
+                        id: "11"
+                        name: BUMP OF CHICKEN
+                        description: 日本のロックバンド。深い歌詞と印象的なメロディーで多くのファンを持つ。
+                    - id: "12"
+                      name: 夜明けの歌
+                      description: back numberによる、夜が明ける瞬間の希望と新しい始まりを歌ったナンバー。
+                      artist:
+                        id: "12"
+                        name: back number
+                        description: 日本の3ピースロックバンド。切ない歌詞とメロディーで、恋愛ソングの定番とされている。
+                    - id: "13"
+                      name: エンドレスワールド
+                      description: SEKAI NO OWARIが描く、終わりなき世界の冒険と夢をテーマにした幻想的な楽曲。
+                      artist:
+                        id: "13"
+                        name: SEKAI NO OWARI
+                        description: |-
+                          日本のポップバンド。ファンタジックな世界観と
+                          キャッチーな楽曲で、国内外で人気を博している。
+                    - id: "14"
+                      name: 勇気の鼓動
+                      description: LiSAが歌う、困難に立ち向かう勇気と希望をテーマにした熱い楽曲。
+                      artist:
+                        id: "14"
+                        name: LiSA
+                        description: アニメソングを中心に活躍する日本の女性シンガー。力強い歌声とエネルギッシュなパフォーマンスで多くの支持を得ている。
+                    - id: "15"
+                      name: 青春の輝き
+                      description: 乃木坂46が表現する、青春の一瞬一瞬を切り取ったキラキラとした楽曲。
+                      artist:
+                        id: "15"
+                        name: 乃木坂46
+                        description: 日本の女性アイドルグループ。清楚なイメージとキャッチーな楽曲で、国内のアイドルシーンを牽引している。
+      x-stoplight:
+        id: a83i260bktnhp
+  "/songs/{id}":
+    get:
+      tags:
+        - songs
+      summary: Get song by song id
+      description: ""
+      operationId: getSong
+      parameters:
+        - name: id
+          in: path
+          description: "The name that needs to be fetched. Use song1 for testing. "
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Song"
+        "400":
+          description: Invalid songname supplied
+        "404":
+          description: Song not found
+      x-stoplight:
+        id: 47xc16soyi9fm
+    put:
+      tags:
+        - songs
+      summary: Update song
+      description: This can only be done by the logged in song.
+      operationId: updateSong
+      parameters:
+        - name: id
+          in: path
+          description: name that need to be deleted
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Update an existent song in the store
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Song"
+      responses:
+        default:
+          description: successful operation
+      x-stoplight:
+        id: sr58umsxpueh7
+    delete:
+      tags:
+        - songs
+      summary: Delete song
+      description: This can only be done by the logged in song.
+      operationId: deleteSong
+      parameters:
+        - name: id
+          in: path
+          description: The name that needs to be deleted
+          required: true
+          schema:
+            type: string
+      responses:
+        "400":
+          description: Invalid songname supplied
+        "404":
+          description: Song not found
+      x-stoplight:
+        id: g422zemydkjhv
+components:
+  schemas:
+    LoginRequest:
+      type: object
+      properties:
+        nickname:
+          type: string
+        password:
+          type: string
+      x-stoplight:
+        id: f2dav5wqplsy9
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        nickname:
+          type: string
+        password:
+          type: string
+        adminFlag:
+          type: boolean
+      x-stoplight:
+        id: onsxictpf6n6e
+    Artist:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+      x-stoplight:
+        id: sf08pt02zhylz
+    Song:
+      type: object
+      x-stoplight:
+        id: y9gdmeeplgc39
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        artist:
+          $ref: "#/components/schemas/Artist"
+          x-stoplight:
+            id: tmr8clafaabq2
+      examples:
+        - id: string
+          name: string
+          description: string
+          artist:
+            id: string
+            name: string
+            description: string
+    Album:
+      type: object
+      x-stoplight:
+        id: gyg13r2t1320m
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        songs:
+          x-stoplight:
+            id: 2eza4busjo01h
+          type: array
+          items:
+            $ref: "#/components/schemas/AlbumSong"
+            x-stoplight:
+              id: d18i8jifnug8i
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        message:
+          type: string
+      xml:
+        name: "##default"
+      x-stoplight:
+        id: d6ggkxzywvcbx
+    AlbumSong:
+      title: AlbumSongs
+      x-stoplight:
+        id: s0184z2uwonot
+      type: object
+      properties:
+        id:
+          type: string
+          x-stoplight:
+            id: rwllzn7vqww3v

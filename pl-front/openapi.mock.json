@@ -1,0 +1,1117 @@
+{
+  "uuid": "f891b837-41cf-45c0-8aaa-75e78281db32",
+  "lastMigration": 32,
+  "name": "playlist",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3000,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "736fb46d-72a9-4fd0-a65a-c8c1f27c75b2",
+      "type": "http",
+      "documentation": "Add a new user",
+      "method": "post",
+      "endpoint": "users",
+      "responses": [
+        {
+          "uuid": "2e07804b-ac4d-4c01-8223-510f8dcaa703",
+          "body": "{\n  \"id\": \"\",\n  \"nickname\": \"\",\n  \"password\": \"\",\n  \"adminFlag\": {{faker 'datatype.boolean'}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "0ce9b636-e642-4f63-870e-fbee7371cb36",
+      "type": "http",
+      "documentation": "get user list",
+      "method": "get",
+      "endpoint": "users",
+      "responses": [
+        {
+          "uuid": "7b82bcc2-9d2b-4440-8501-ebda4b9dd78d",
+          "body": "[\n  {\n    \"id\": \"\",\n    \"nickname\": \"\",\n    \"password\": \"\",\n    \"adminFlag\": {{faker 'datatype.boolean'}}\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "e730c609-be91-4877-85c7-4b6e722aa924",
+      "type": "http",
+      "documentation": "Login",
+      "method": "post",
+      "endpoint": "users/login",
+      "responses": [
+        {
+          "uuid": "159df6ac-bb4d-44cd-9d20-8ca3e20a008b",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "c036a173-6aeb-4471-ad84-950d86d23840",
+      "type": "http",
+      "documentation": "Get user by user id",
+      "method": "get",
+      "endpoint": "users/:id",
+      "responses": [
+        {
+          "uuid": "f63477bd-c68a-472f-8549-f1e144b3d97a",
+          "body": "{\n  \"id\": \"\",\n  \"nickname\": \"\",\n  \"password\": \"\",\n  \"adminFlag\": {{faker 'datatype.boolean'}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "81a2732d-ea63-43b1-9b04-aa33016a61b7",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid username supplied",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "ff88d77f-9655-4a5d-a1d3-b6345216153a",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "User not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "f632253e-1c84-4813-817c-7042de11e56a",
+      "type": "http",
+      "documentation": "Update user",
+      "method": "put",
+      "endpoint": "users/:id",
+      "responses": [
+        {
+          "uuid": "e42a572d-f028-48a3-883b-b0e3958d48fc",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "9398e6f9-5164-4d5d-b22a-f89ed949d915",
+      "type": "http",
+      "documentation": "Delete user",
+      "method": "delete",
+      "endpoint": "users/:id",
+      "responses": [
+        {
+          "uuid": "230befdc-151c-4aec-b486-ca8ff691ddeb",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid username supplied",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "33d5d0f5-cd43-4701-929c-aff8c0776d6a",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "User not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "ccb7a0dc-7710-4a46-82d3-24bd404d88f0",
+      "type": "http",
+      "documentation": "Add a new artist",
+      "method": "post",
+      "endpoint": "artists",
+      "responses": [
+        {
+          "uuid": "ebdeb3be-cf44-4794-97f7-2c9da2a7a28a",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "93d69bd5-6151-442c-b1eb-f5b70885caec",
+      "type": "http",
+      "documentation": "get artist list",
+      "method": "get",
+      "endpoint": "artists",
+      "responses": [
+        {
+          "uuid": "1baa84be-2a2b-43f9-9457-611c93d21e82",
+          "body": "[\r\n  {\r\n    \"id\": \"1\",\r\n    \"name\": \"浜崎あゆみ\",\r\n    \"description\": \"日本の女性ポップシンガーソングライター。1990年代後半から2000年代にかけて多くのヒット曲を生み出し、日本の音楽シーンに多大な影響を与えた。\"\r\n  },\r\n  {\r\n    \"id\": \"2\",\r\n    \"name\": \"米津玄師\",\r\n    \"description\": \"日本の男性シンガーソングライター、音楽プロデューサー。独特の音楽スタイルと視覚的表現で知られ、多くのファンを持つ。\"\r\n  },\r\n  {\r\n    \"id\": \"3\",\r\n    \"name\": \"宇多田ヒカル\",\r\n    \"description\": \"日本を代表する女性シンガーソングライターの一人。彼女のデビューアルバム「First Love」は日本のアルバム売上記録を持っている。\"\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"name\": \"RADWIMPS\",\r\n    \"description\": \"日本のロックバンド。独自の歌詞とメロディーで若者を中心に人気があり、アニメ映画「君の名は。」の主題歌で国際的にも知名度を上げた。\"\r\n  },\r\n  {\r\n    \"id\": \"5\",\r\n    \"name\": \"あいみょん\",\r\n    \"description\": \"日本の女性シンガーソングライター。心に響く歌詞とメロディーで幅広い世代から支持を受けている。\"\r\n  },\r\n  {\r\n    \"id\": \"6\",\r\n    \"name\": \"Perfume\",\r\n    \"description\": \"日本のテクノポップユニット。独特の音楽スタイルと先進的なパフォーマンスで国内外から高い評価を受けている。\"\r\n  },\r\n  {\r\n    \"id\": \"7\",\r\n    \"name\": \"King Gnu\",\r\n    \"description\": \"日本のロックバンド。ジャンルにとらわれない音楽性で、若い世代を中心に人気を集めている。\"\r\n  },\r\n  {\r\n    \"id\": \"8\",\r\n    \"name\": \"椎名林檎\",\r\n    \"description\": \"日本の女性シンガーソングライター、音楽プロデューサー。個性的な歌声と音楽性で独自の地位を築いている。\"\r\n  },\r\n  {\r\n    \"id\": \"9\",\r\n    \"name\": \"Mr.Children\",\r\n    \"description\": \"日本のロックバンド。1990年代から続く長いキャリアを通じて、多くのヒット曲を世に送り出している。\"\r\n  },\r\n  {\r\n    \"id\": \"10\",\r\n    \"name\": \"宮本浩次\",\r\n    \"description\": \"エレファントカシマシのボーカルとして知られる日本のシンガーソングライター。力強い歌声と熱いライブパフォーマンスで知られている。\"\r\n  },\r\n  {\r\n    \"id\": \"11\",\r\n    \"name\": \"BUMP OF CHICKEN\",\r\n    \"description\": \"日本のロックバンド。深い歌詞と印象的なメロディーで多くのファンを持つ。\"\r\n  },\r\n  {\r\n    \"id\": \"12\",\r\n    \"name\": \"back number\",\r\n    \"description\": \"日本の3ピースロックバンド。切ない歌詞とメロディーで、恋愛ソングの定番とされている。\"\r\n  },\r\n  {\r\n    \"id\": \"13\",\r\n    \"name\": \"SEKAI NO OWARI\",\r\n    \"description\": \"日本のポップバンド。ファンタジックな世界観とキャッチーな楽曲で、国内外で人気を博している。\"\r\n  },\r\n  {\r\n    \"id\": \"14\",\r\n    \"name\": \"LiSA\",\r\n    \"description\": \"アニメソングを中心に活躍する日本の女性シンガー。力強い歌声とエネルギッシュなパフォーマンスで多くの支持を得ている。\"\r\n  },\r\n  {\r\n    \"id\": \"15\",\r\n    \"name\": \"乃木坂46\",\r\n    \"description\": \"日本の女性アイドルグループ。清楚なイメージとキャッチーな楽曲で、国内のアイドルシーンを牽引している。\"\r\n  }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "34c6b2d1-d25a-4218-b580-805ba7efca6a",
+          "body": "[\n  {\n    \"id\": \"1\",\n    \"name\": \"浜崎あゆみ\",\n    \"description\": \"日本の女性ポップシンガーソングライター。1990年代後半から2000年代にかけて多くのヒット曲を生み出し、日本の音楽シーンに多大な影響を与えた。\"\n  },\n  {\n    \"id\": \"2\",\n    \"name\": \"米津玄師\",\n    \"description\": \"日本の男性シンガーソングライター、音楽プロデューサー。独特の音楽スタイルと視覚的表現で知られ、多くのファンを持つ。\"\n  },\n  {\n    \"id\": \"3\",\n    \"name\": \"宇多田ヒカル\",\n    \"description\": \"日本を代表する女性シンガーソングライターの一人。彼女のデビューアルバム「First Love」は日本のアルバム売上記録を持っている。\"\n  },\n  {\n    \"id\": \"4\",\n    \"name\": \"RADWIMPS\",\n    \"description\": \"日本のロックバンド。独自の歌詞とメロディーで若者を中心に人気があり、アニメ映画「君の名は。」の主題歌で国際的にも知名度を上げた。\"\n  },\n  {\n    \"id\": \"5\",\n    \"name\": \"あいみょん\",\n    \"description\": \"日本の女性シンガーソングライター。心に響く歌詞とメロディーで幅広い世代から支持を受けている。\"\n  },\n  {\n    \"id\": \"6\",\n    \"name\": \"Perfume\",\n    \"description\": \"日本のテクノポップユニット。独特の音楽スタイルと先進的なパフォーマンスで国内外から高い評価を受けている。\"\n  },\n  {\n    \"id\": \"7\",\n    \"name\": \"King Gnu\",\n    \"description\": \"日本のロックバンド。ジャンルにとらわれない音楽性で、若い世代を中心に人気を集めている。\"\n  },\n  {\n    \"id\": \"8\",\n    \"name\": \"椎名林檎\",\n    \"description\": \"日本の女性シンガーソングライター、音楽プロデューサー。個性的な歌声と音楽性で独自の地位を築いている。\"\n  },\n  {\n    \"id\": \"9\",\n    \"name\": \"Mr.Children\",\n    \"description\": \"日本のロックバンド。1990年代から続く長いキャリアを通じて、多くのヒット曲を世に送り出している。\"\n  },\n  {\n    \"id\": \"10\",\n    \"name\": \"宮本浩次\",\n    \"description\": \"エレファントカシマシのボーカルとして知られる日本のシンガーソングライター。力強い歌声と熱いライブパフォーマンスで知られている。\"\n  },\n  {\n    \"id\": \"11\",\n    \"name\": \"BUMP OF CHICKEN\",\n    \"description\": \"日本のロックバンド。深い歌詞と印象的なメロディーで多くのファンを持つ。\"\n  },\n  {\n    \"id\": \"12\",\n    \"name\": \"back number\",\n    \"description\": \"日本の3ピースロックバンド。切ない歌詞とメロディーで、恋愛ソングの定番とされている。\"\n  },\n  {\n    \"id\": \"13\",\n    \"name\": \"SEKAI NO OWARI\",\n    \"description\": \"日本のポップバンド。ファンタジックな世界観とキャッチーな楽曲で、国内外で人気を博している。\"\n  },\n  {\n    \"id\": \"14\",\n    \"name\": \"LiSA\",\n    \"description\": \"アニメソングを中心に活躍する日本の女性シンガー。力強い歌声とエネルギッシュなパフォーマンスで多くの支持を得ている。\"\n  },\n  {\n    \"id\": \"15\",\n    \"name\": \"乃木坂46\",\n    \"description\": \"日本の女性アイドルグループ。清楚なイメージとキャッチーな楽曲で、国内のアイドルシーンを牽引している。\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Example 1",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "b48d733e-d75e-4e06-82b7-76a305bf3fc0",
+      "type": "http",
+      "documentation": "Get artist by artist id",
+      "method": "get",
+      "endpoint": "artists/:id",
+      "responses": [
+        {
+          "uuid": "79e9df27-b2b6-475a-81b4-b8fb9d7a6471",
+          "body": "{\n  \"id\": \"\",\n  \"name\": \"\",\n  \"description\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "07071160-39cb-4bf2-b6a9-b1b81dd482f6",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid artistname supplied",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "7dea75fb-1f5c-4f46-9470-8d9009643341",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Artist not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "ca88cd57-0222-4db8-a7a8-cc2ecd199f87",
+      "type": "http",
+      "documentation": "Update artist",
+      "method": "put",
+      "endpoint": "artists/:id",
+      "responses": [
+        {
+          "uuid": "ad947867-76aa-4cad-8791-74ed07accddf",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "62c7a6f5-abd7-40f4-b322-dc620a33479d",
+      "type": "http",
+      "documentation": "Delete artist",
+      "method": "delete",
+      "endpoint": "artists/:id",
+      "responses": [
+        {
+          "uuid": "65f2b5fd-e5ce-4f2d-9c1d-e8ae6afad743",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid artistname supplied",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "1631d48e-b2c7-4def-894a-f36a835821f4",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Artist not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "53f6fae8-c191-41db-a0b1-6dbb16db7e53",
+      "type": "http",
+      "documentation": "Add a new song",
+      "method": "post",
+      "endpoint": "songs",
+      "responses": [
+        {
+          "uuid": "34730273-69a8-4d6b-9129-8982d755e0b5",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "a098f746-1a4b-42e1-bed5-08f0c6501e65",
+      "type": "http",
+      "documentation": "get song list",
+      "method": "get",
+      "endpoint": "songs",
+      "responses": [
+        {
+          "uuid": "99324437-6083-4a2c-8a2c-90cf7ecc49fe",
+          "body": "[\r\n  {\r\n    \"id\": \"1\",\r\n    \"name\": \"夜空の彼方へ\",\r\n    \"description\": \"浜崎あゆみが歌う、失った恋の記憶を夜空に重ね合わせたバラード。\",\r\n    \"artist\": {\r\n      \"id\": \"1\",\r\n      \"name\": \"浜崎あゆみ\",\r\n      \"description\": \"日本の女性ポップシンガーソングライター。1990年代後半から2000年代にかけて多くのヒット曲を生み出し、日本の音楽シーンに多大な影響を与えた。\"\r\n    }\r\n  },\r\n  {\r\n    \"id\": \"2\",\r\n    \"name\": \"レモンの季節\",\r\n    \"description\": \"米津玄師の切なくも爽やかな恋の歌。失った愛をレモンの香りに例え、心に残る後味を描写。\",\r\n    \"artist\": {\r\n      \"id\": \"2\",\r\n      \"name\": \"米津玄師\",\r\n      \"description\": \"日本の男性シンガーソングライター、音楽プロデューサー。独特の音楽スタイルと視覚的表現で知られ、多くのファンを持つ。\"\r\n    }\r\n  },\r\n  {\r\n    \"id\": \"3\",\r\n    \"name\": \"Automatic - 未来への扉\",\r\n    \"description\": \"宇多田ヒカルが贈る、未来への希望と恐れをテーマにした力強いメッセージソング。\",\r\n    \"artist\": {\r\n      \"id\": \"3\",\r\n      \"name\": \"宇多田ヒカル\",\r\n      \"description\": \"日本を代表する女性シンガーソングライターの一人。彼女のデビューアルバム「First Love」は日本のアルバム売上記録を持っている。\"\r\n    }\r\n  },\r\n  {\r\n    \"id\": \"4\",\r\n    \"name\": \"前夜、無限の城\",\r\n    \"description\": \"RADWIMPSによる、壮大なスケールで描かれる冒険と友情の物語。\",\r\n    \"artist\": {\r\n      \"id\": \"4\",\r\n      \"name\": \"RADWIMPS\",\r\n      \"description\": \"日本のロックバンド。独自の歌詞とメロディーで若者を中心に人気があり、アニメ映画「君の名は。」の主題歌で国際的にも知名度を上げた。\"\r\n    }\r\n  },\r\n  {\r\n    \"id\": \"5\",\r\n    \"name\": \"君と夏の終わり\",\r\n    \"description\": \"あいみょんが歌う、夏の終わりの切なさと新たな始まりの予感を描いた楽曲。\",\r\n    \"artist\": {\r\n      \"id\": \"5\",\r\n      \"name\": \"あいみょん\",\r\n      \"description\": \"日本の女性シンガーソングライター。心に響く歌詞とメロディーで幅広い世代から支持を受けている。\"\r\n    }\r\n  },\r\n  {\r\n    \"id\": \"6\",\r\n    \"name\": \"光のダンス\",\r\n    \"description\": \"Perfumeが奏でる、先進的なサウンドと光の演出が融合した未来型ダンスナンバー。\",\r\n    \"artist\": {\r\n      \"id\": \"6\",\r\n      \"name\": \"Perfume\",\r\n      \"description\": \"日本のテクノポップユニット。独特の音楽スタイルと先進的なパフォーマンスで国内外から高い評価を受けている。\"\r\n    }\r\n  },\r\n  {\r\n    \"id\": \"7\",\r\n    \"name\": \"静かなる革命\",\r\n    \"description\": \"King Gnuによる、社会への静かなる抵抗と変革をテーマにした力強い楽曲。\",\r\n    \"artist\": {\r\n      \"id\": \"7\",\r\n      \"name\": \"King Gnu\",\r\n      \"description\": \"日本のロックバンド。ジャンルにとらわれない音楽性で、若い世代を中心に人気を集めている。\"\r\n    }\r\n  },\r\n  {\r\n    \"id\": \"8\",\r\n    \"name\": \"東京事変\",\r\n    \"description\": \"椎名林檎が綴る、東京の喧騒と人々の生活を描いた物語性の強い楽曲。\",\r\n    \"artist\": {\r\n      \"id\": \"8\",\r\n      \"name\": \"椎名林檎\",\r\n      \"description\": \"日本の女性シンガーソングライター、音楽プロデューサー。個性的な歌声と音楽性で独自の地位を築いている。\"\r\n    }\r\n  },\r\n  {\r\n    \"id\": \"9\",\r\n    \"name\": \"未来へのカウントダウン\",\r\n    \"description\": \"Mr.Childrenが贈る、希望を歌に込めた心温まるメッセージソング。\",\r\n    \"artist\": {\r\n      \"id\": \"9\",\r\n      \"name\": \"Mr.Children\",\r\n      \"description\": \"日本のロックバンド。1990年代から続く長いキャリアを通じて、多くのヒット曲を世に送り出している。\"\r\n    }\r\n  },\r\n  {\r\n    \"id\": \"10\",\r\n    \"name\": \"風を感じて\",\r\n    \"description\": \"宮本浩次の熱い思いが込められた、生きる力を感じさせるロックナンバー。\",\r\n    \"artist\": {\r\n      \"id\": \"10\",\r\n      \"name\": \"宮本浩次\",\r\n      \"description\": \"エレファントカシマシのボーカルとして知られる日本のシンガーソングライター。力強い歌声と熱いライブパフォーマンスで知られている。\"\r\n    }\r\n  },\r\n  {\r\n    \"id\": \"11\",\r\n    \"name\": \"宇宙の旅路\",\r\n    \"description\": \"BUMP OF CHICKENが奏でる、宇宙を旅する幻想的な物語と深い歌詞の楽曲。\",\r\n    \"artist\": {\r\n      \"id\": \"11\",\r\n      \"name\": \"BUMP OF CHICKEN\",\r\n      \"description\": \"日本のロックバンド。深い歌詞と印象的なメロディーで多くのファンを持つ。\"\r\n    }\r\n  },\r\n  {\r\n    \"id\": \"12\",\r\n    \"name\": \"夜明けの歌\",\r\n    \"description\": \"back numberによる、夜が明ける瞬間の希望と新しい始まりを歌ったナンバー。\",\r\n    \"artist\": {\r\n      \"id\": \"12\",\r\n      \"name\": \"back number\",\r\n      \"description\": \"日本の3ピースロックバンド。切ない歌詞とメロディーで、恋愛ソングの定番とされている。\"\r\n    }\r\n  },\r\n  {\r\n    \"id\": \"13\",\r\n    \"name\": \"エンドレスワールド\",\r\n    \"description\": \"SEKAI NO OWARIが描く、終わりなき世界の冒険と夢をテーマにした幻想的な楽曲。\",\r\n    \"artist\": {\r\n      \"id\": \"13\",\r\n      \"name\": \"SEKAI NO OWARI\",\r\n      \"description\": \"日本のポップバンド。ファンタジックな世界観とキャッチーな楽曲で、国内外で人気を博している。\"\r\n    }\r\n  },\r\n  {\r\n    \"id\": \"14\",\r\n    \"name\": \"勇気の鼓動\",\r\n    \"description\": \"LiSAが歌う、困難に立ち向かう勇気と希望をテーマにした熱い楽曲。\",\r\n    \"artist\": {\r\n      \"id\": \"14\",\r\n      \"name\": \"LiSA\",\r\n      \"description\": \"アニメソングを中心に活躍する日本の女性シンガー。力強い歌声とエネルギッシュなパフォーマンスで多くの支持を得ている。\"\r\n    }\r\n  },\r\n  {\r\n    \"id\": \"15\",\r\n    \"name\": \"青春の輝き\",\r\n    \"description\": \"乃木坂46が表現する、青春の一瞬一瞬を切り取ったキラキラとした楽曲。\",\r\n    \"artist\": {\r\n      \"id\": \"15\",\r\n      \"name\": \"乃木坂46\",\r\n      \"description\": \"日本の女性アイドルグループ。清楚なイメージとキャッチーな楽曲で、国内のアイドルシーンを牽引している。\"\r\n    }\r\n  }\r\n]\r\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "f04dc15f-4a29-4e96-b3b9-60b90b28a957",
+          "body": "[\n  {\n    \"id\": \"1\",\n    \"name\": \"夜空の彼方へ\",\n    \"description\": \"浜崎あゆみが歌う、失った恋の記憶を夜空に重ね合わせたバラード。\",\n    \"artist\": {\n      \"id\": \"1\",\n      \"name\": \"浜崎あゆみ\",\n      \"description\": \"日本の女性ポップシンガーソングライター。1990年代後半から2000年代にかけて多くのヒット曲を生み出し、日本の音楽シーンに多大な影響を与えた。\"\n    }\n  },\n  {\n    \"id\": \"2\",\n    \"name\": \"レモンの季節\",\n    \"description\": \"米津玄師の切なくも爽やかな恋の歌。失った愛をレモンの香りに例え、心に残る後味を描写。\",\n    \"artist\": {\n      \"id\": \"2\",\n      \"name\": \"米津玄師\",\n      \"description\": \"日本の男性シンガーソングライター、音楽プロデューサー。独特の音楽スタイルと視覚的表現で知られ、多くのファンを持つ。\"\n    }\n  },\n  {\n    \"id\": \"3\",\n    \"name\": \"Automatic - 未来への扉\",\n    \"description\": \"宇多田ヒカルが贈る、未来への希望と恐れをテーマにした力強いメッセージソング。\",\n    \"artist\": {\n      \"id\": \"3\",\n      \"name\": \"宇多田ヒカル\",\n      \"description\": \"日本を代表する女性シンガーソングライターの一人。彼女のデビューアルバム「First Love」は日本のアルバム売上記録を持っている。\"\n    }\n  },\n  {\n    \"id\": \"4\",\n    \"name\": \"前夜、無限の城\",\n    \"description\": \"RADWIMPSによる、壮大なスケールで描かれる冒険と友情の物語。\",\n    \"artist\": {\n      \"id\": \"4\",\n      \"name\": \"RADWIMPS\",\n      \"description\": \"日本のロックバンド。独自の歌詞とメロディーで若者を中心に人気があり、アニメ映画「君の名は。」の主題歌で国際的にも知名度を上げた。\"\n    }\n  },\n  {\n    \"id\": \"5\",\n    \"name\": \"君と夏の終わり\",\n    \"description\": \"あいみょんが歌う、夏の終わりの切なさと新たな始まりの予感を描いた楽曲。\",\n    \"artist\": {\n      \"id\": \"5\",\n      \"name\": \"あいみょん\",\n      \"description\": \"日本の女性シンガーソングライター。心に響く歌詞とメロディーで幅広い世代から支持を受けている。\"\n    }\n  },\n  {\n    \"id\": \"6\",\n    \"name\": \"光のダンス\",\n    \"description\": \"Perfumeが奏でる、先進的なサウンドと光の演出が融合した未来型ダンスナンバー。\",\n    \"artist\": {\n      \"id\": \"6\",\n      \"name\": \"Perfume\",\n      \"description\": \"日本のテクノポップユニット。独特の音楽スタイルと先進的なパフォーマンスで国内外から高い評価を受けている。\"\n    }\n  },\n  {\n    \"id\": \"7\",\n    \"name\": \"静かなる革命\",\n    \"description\": \"King Gnuによる、社会への静かなる抵抗と変革をテーマにした力強い楽曲。\",\n    \"artist\": {\n      \"id\": \"7\",\n      \"name\": \"King Gnu\",\n      \"description\": \"日本のロックバンド。ジャンルにとらわれない音楽性で、若い世代を中心に人気を集めている。\"\n    }\n  },\n  {\n    \"id\": \"8\",\n    \"name\": \"東京事変\",\n    \"description\": \"椎名林檎が綴る、東京の喧騒と人々の生活を描いた物語性の強い楽曲。\",\n    \"artist\": {\n      \"id\": \"8\",\n      \"name\": \"椎名林檎\",\n      \"description\": \"日本の女性シンガーソングライター、音楽プロデューサー。個性的な歌声と音楽性で独自の地位を築いている。\"\n    }\n  },\n  {\n    \"id\": \"9\",\n    \"name\": \"未来へのカウントダウン\",\n    \"description\": \"Mr.Childrenが贈る、希望を歌に込めた心温まるメッセージソング。\",\n    \"artist\": {\n      \"id\": \"9\",\n      \"name\": \"Mr.Children\",\n      \"description\": \"日本のロックバンド。1990年代から続く長いキャリアを通じて、多くのヒット曲を世に送り出している。\"\n    }\n  },\n  {\n    \"id\": \"10\",\n    \"name\": \"風を感じて\",\n    \"description\": \"宮本浩次の熱い思いが込められた、生きる力を感じさせるロックナンバー。\",\n    \"artist\": {\n      \"id\": \"10\",\n      \"name\": \"宮本浩次\",\n      \"description\": \"エレファントカシマシのボーカルとして知られる日本のシンガーソングライター。力強い歌声と熱いライブパフォーマンスで知られている。\"\n    }\n  },\n  {\n    \"id\": \"11\",\n    \"name\": \"宇宙の旅路\",\n    \"description\": \"BUMP OF CHICKENが奏でる、宇宙を旅する幻想的な物語と深い歌詞の楽曲。\",\n    \"artist\": {\n      \"id\": \"11\",\n      \"name\": \"BUMP OF CHICKEN\",\n      \"description\": \"日本のロックバンド。深い歌詞と印象的なメロディーで多くのファンを持つ。\"\n    }\n  },\n  {\n    \"id\": \"12\",\n    \"name\": \"夜明けの歌\",\n    \"description\": \"back numberによる、夜が明ける瞬間の希望と新しい始まりを歌ったナンバー。\",\n    \"artist\": {\n      \"id\": \"12\",\n      \"name\": \"back number\",\n      \"description\": \"日本の3ピースロックバンド。切ない歌詞とメロディーで、恋愛ソングの定番とされている。\"\n    }\n  },\n  {\n    \"id\": \"13\",\n    \"name\": \"エンドレスワールド\",\n    \"description\": \"SEKAI NO OWARIが描く、終わりなき世界の冒険と夢をテーマにした幻想的な楽曲。\",\n    \"artist\": {\n      \"id\": \"13\",\n      \"name\": \"SEKAI NO OWARI\",\n      \"description\": \"日本のポップバンド。ファンタジックな世界観と\\nキャッチーな楽曲で、国内外で人気を博している。\"\n    }\n  },\n  {\n    \"id\": \"14\",\n    \"name\": \"勇気の鼓動\",\n    \"description\": \"LiSAが歌う、困難に立ち向かう勇気と希望をテーマにした熱い楽曲。\",\n    \"artist\": {\n      \"id\": \"14\",\n      \"name\": \"LiSA\",\n      \"description\": \"アニメソングを中心に活躍する日本の女性シンガー。力強い歌声とエネルギッシュなパフォーマンスで多くの支持を得ている。\"\n    }\n  },\n  {\n    \"id\": \"15\",\n    \"name\": \"青春の輝き\",\n    \"description\": \"乃木坂46が表現する、青春の一瞬一瞬を切り取ったキラキラとした楽曲。\",\n    \"artist\": {\n      \"id\": \"15\",\n      \"name\": \"乃木坂46\",\n      \"description\": \"日本の女性アイドルグループ。清楚なイメージとキャッチーな楽曲で、国内のアイドルシーンを牽引している。\"\n    }\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Example 1",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "deb54dae-8a61-4a0f-bc5e-14791f970efc",
+      "type": "http",
+      "documentation": "Get song by song id",
+      "method": "get",
+      "endpoint": "songs/:id",
+      "responses": [
+        {
+          "uuid": "66721ae8-ced9-47f7-8b83-72b94c2ea927",
+          "body": "{\n  \"id\": \"\",\n  \"name\": \"\",\n  \"description\": \"\",\n  \"artist\": {\n    \"id\": \"\",\n    \"name\": \"\",\n    \"description\": \"\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "356b1d3c-7a1f-4c0d-82f2-f5c097b42214",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid songname supplied",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "f75b62ec-dfed-4fac-8e07-5673ea535a29",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Song not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "35101942-185e-486f-bb00-50ed67eb6a55",
+      "type": "http",
+      "documentation": "Update song",
+      "method": "put",
+      "endpoint": "songs/:id",
+      "responses": [
+        {
+          "uuid": "4bd1da57-d530-4e5e-b72d-62815fd89798",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "f15d5def-37ee-4b42-b711-5b039314b20d",
+      "type": "http",
+      "documentation": "Delete song",
+      "method": "delete",
+      "endpoint": "songs/:id",
+      "responses": [
+        {
+          "uuid": "ebc9dd3b-d921-40ef-90ca-f87b59590bef",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid songname supplied",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "747d8f8c-c122-49f2-b852-6e760c5e01cc",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Song not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "af4e696f-e232-4336-bc00-4d076621ec01",
+      "type": "http",
+      "documentation": "Get album list",
+      "method": "get",
+      "endpoint": "albums",
+      "responses": [
+        {
+          "uuid": "c6e89e8d-d375-455e-b60c-41d314366e40",
+          "body": "[\r\n  {\r\n    \"id\": \"A1\",\r\n    \"name\": \"夜のメロディー\",\r\n    \"description\": \"夜に聴きたくなるような曲を集めたコンピレーションアルバム。\",\r\n    \"songs\": [\r\n      {\r\n        \"id\": \"1\",\r\n        \"name\": \"夜空の彼方へ\",\r\n        \"description\": \"浜崎あゆみが歌う、失った恋の記憶を夜空に重ね合わせたバラード。\",\r\n        \"artist\": {\r\n          \"id\": \"1\",\r\n          \"name\": \"浜崎あゆみ\",\r\n          \"description\": \"日本の女性ポップシンガーソングライター。1990年代後半から2000年代にかけて多くのヒット曲を生み出し、日本の音楽シーンに多大な影響を与えた。\"\r\n        }\r\n      },\r\n      {\r\n        \"id\": \"2\",\r\n        \"name\": \"レモンの季節\",\r\n        \"description\": \"米津玄師の切なくも爽やかな恋の歌。失った愛をレモンの香りに例え、心に残る後味を描写。\",\r\n        \"artist\": {\r\n          \"id\": \"2\",\r\n          \"name\": \"米津玄師\",\r\n          \"description\": \"日本の男性シンガーソングライター、音楽プロデューサー。独特の音楽スタイルと視覚的表現で知られ、多くのファンを持つ。\"\r\n        }\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"id\": \"A2\",\r\n    \"name\": \"希望の旋律\",\r\n    \"description\": \"未来への希望を感じさせる楽曲を集めたアルバム。\",\r\n    \"songs\": [\r\n      {\r\n        \"id\": \"3\",\r\n        \"name\": \"Automatic - 未来への扉\",\r\n        \"description\": \"宇多田ヒカルが贈る、未来への希望と恐れをテーマにした力強いメッセージソング。\",\r\n        \"artist\": {\r\n          \"id\": \"3\",\r\n          \"name\": \"宇多田ヒカル\",\r\n          \"description\": \"日本を代表する女性シンガーソングライターの一人。彼女のデビューアルバム「First Love」は日本のアルバム売上記録を持っている。\"\r\n        }\r\n      },\r\n      {\r\n        \"id\": \"9\",\r\n        \"name\": \"未来へのカウントダウン\",\r\n        \"description\": \"Mr.Childrenが贈る、希望を歌に込めた心温まるメッセージソング。\",\r\n        \"artist\": {\r\n          \"id\": \"9\",\r\n          \"name\": \"Mr.Children\",\r\n          \"description\": \"日本のロックバンド。1990年代から続く長いキャリアを通じて、多くのヒット曲を世に送り出している。\"\r\n        }\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"id\": \"A3\",\r\n    \"name\": \"青春のサウンドトラック\",\r\n    \"description\": \"青春時代の思い出に浸れる楽曲を集めたアルバム。\",\r\n    \"songs\": [\r\n      {\r\n        \"id\": \"5\",\r\n        \"name\": \"君と夏の終わり\",\r\n        \"description\": \"あいみょんが歌う、夏の終わりの切なさと新たな始まりの予感を描いた楽曲。\",\r\n        \"artist\": {\r\n          \"id\": \"5\",\r\n          \"name\": \"あいみょん\",\r\n          \"description\": \"日本の女性シンガーソングライター。心に響く歌詞とメロディーで幅広い世代から支持を受けている。\"\r\n        }\r\n      },\r\n      {\r\n        \"id\": \"15\",\r\n        \"name\": \"青春の輝き\",\r\n        \"description\": \"乃木坂46が表現する、青春の一瞬一瞬を切り取ったキラキラとした楽曲。\",\r\n        \"artist\": {\r\n          \"id\": \"15\",\r\n          \"name\": \"乃木坂46\",\r\n          \"description\": \"日本の女性アイドルグループ。清楚なイメージとキャッチーな楽曲で、国内のアイドルシーンを牽引している。\"\r\n        }\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"id\": \"A4\",\r\n    \"name\": \"ロックスピリット\",\r\n    \"description\": \"熱いロックナンバーで心を震わせる楽曲を集めたアルバム。\",\r\n    \"songs\": [\r\n      {\r\n        \"id\": \"4\",\r\n        \"name\": \"前夜、無限の城\",\r\n        \"description\": \"RADWIMPSによる、壮大なスケールで描かれる冒険と友情の物語。\",\r\n        \"artist\": {\r\n          \"id\": \"4\",\r\n          \"name\": \"RADWIMPS\",\r\n          \"description\": \"日本のロックバンド。独自の歌詞とメロディーで若者を中心に人気があり、アニメ映画「君の名は。」の主題歌で国際的にも知名度を上げた。\"\r\n        }\r\n      },\r\n      {\r\n        \"id\": \"7\",\r\n        \"name\": \"静かなる革命\",\r\n        \"description\": \"King Gnuによる、社会への静かなる抵抗と変革をテーマにした力強い楽曲。\",\r\n        \"artist\": {\r\n          \"id\": \"7\",\r\n          \"name\": \"King Gnu\",\r\n          \"description\": \"日本のロックバンド。ジャンルにとらわれない音楽性で、若い世代を中心に人気を集めている。\"\r\n        }\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"id\": \"A5\",\r\n    \"name\": \"切ない恋の歌\",\r\n    \"description\": \"失恋や切ない恋心をテーマにした楽曲を集めたアルバム。\",\r\n    \"songs\": [\r\n      {\r\n        \"id\": \"12\",\r\n        \"name\": \"夜明けの歌\",\r\n        \"description\": \"back numberによる、夜が明ける瞬間の希望と新しい始まりを歌ったナンバー。\",\r\n        \"artist\": {\r\n          \"id\": \"12\",\r\n          \"name\": \"back number\",\r\n          \"description\": \"日本の3ピースロックバンド。切ない歌詞とメロディーで、恋愛ソングの定番とされている。\"\r\n        }\r\n      },\r\n      {\r\n        \"id\": \"14\",\r\n        \"name\": \"勇気の鼓動\",\r\n        \"description\": \"LiSAが歌う、困難に立ち向かう勇気と希望をテーマにした熱い楽曲。\",\r\n        \"artist\": {\r\n          \"id\": \"14\",\r\n          \"name\": \"LiSA\",\r\n          \"description\": \"アニメソングを中心に活躍する日本の女性シンガー。力強い歌声とエネルギッシュなパフォーマンスで多くの支持を得ている。\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n]\r\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "OK",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "e0642656-978f-4f25-b6c3-24fc2e9213f2",
+      "type": "http",
+      "documentation": "Add new Album",
+      "method": "post",
+      "endpoint": "albums",
+      "responses": [
+        {
+          "uuid": "a902b550-8e20-4997-ad5b-9cd52f1c38e7",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "OK",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "73285b19-499a-46c9-90ad-78d3f78c14a9",
+      "type": "http",
+      "documentation": "Your GET endpoint",
+      "method": "get",
+      "endpoint": "albums/:id",
+      "responses": [
+        {
+          "uuid": "a7bad44c-ba0f-435e-98fd-93cf495590c3",
+          "body": "{\n  \"id\": \"\",\n  \"name\": \"\",\n  \"description\": \"\",\n  \"songs\": [\n    {\n      \"id\": \"\",\n      \"name\": \"\",\n      \"description\": \"\",\n      \"artist\": {\n        \"id\": \"\",\n        \"name\": \"\",\n        \"description\": \"\"\n      }\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "OK",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "e6c79c73-901f-4a73-84d2-2b59070636ea",
+      "type": "http",
+      "documentation": "Your PUT endpoint",
+      "method": "put",
+      "endpoint": "albums/:id",
+      "responses": [
+        {
+          "uuid": "8ca6ec6f-4f25-4ffc-ba99-c1de675d2df7",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "OK",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "68427581-5eb0-4f7d-a0f4-be7d35e13696",
+      "type": "http",
+      "documentation": "Your DELETE endpoint",
+      "method": "delete",
+      "endpoint": "albums/:id",
+      "responses": [
+        {
+          "uuid": "bdcf31a2-d95f-4307-ab81-469dda9b5460",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "OK",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "736fb46d-72a9-4fd0-a65a-c8c1f27c75b2"
+    },
+    {
+      "type": "route",
+      "uuid": "0ce9b636-e642-4f63-870e-fbee7371cb36"
+    },
+    {
+      "type": "route",
+      "uuid": "e730c609-be91-4877-85c7-4b6e722aa924"
+    },
+    {
+      "type": "route",
+      "uuid": "c036a173-6aeb-4471-ad84-950d86d23840"
+    },
+    {
+      "type": "route",
+      "uuid": "f632253e-1c84-4813-817c-7042de11e56a"
+    },
+    {
+      "type": "route",
+      "uuid": "9398e6f9-5164-4d5d-b22a-f89ed949d915"
+    },
+    {
+      "type": "route",
+      "uuid": "ccb7a0dc-7710-4a46-82d3-24bd404d88f0"
+    },
+    {
+      "type": "route",
+      "uuid": "93d69bd5-6151-442c-b1eb-f5b70885caec"
+    },
+    {
+      "type": "route",
+      "uuid": "b48d733e-d75e-4e06-82b7-76a305bf3fc0"
+    },
+    {
+      "type": "route",
+      "uuid": "ca88cd57-0222-4db8-a7a8-cc2ecd199f87"
+    },
+    {
+      "type": "route",
+      "uuid": "62c7a6f5-abd7-40f4-b322-dc620a33479d"
+    },
+    {
+      "type": "route",
+      "uuid": "53f6fae8-c191-41db-a0b1-6dbb16db7e53"
+    },
+    {
+      "type": "route",
+      "uuid": "a098f746-1a4b-42e1-bed5-08f0c6501e65"
+    },
+    {
+      "type": "route",
+      "uuid": "deb54dae-8a61-4a0f-bc5e-14791f970efc"
+    },
+    {
+      "type": "route",
+      "uuid": "35101942-185e-486f-bb00-50ed67eb6a55"
+    },
+    {
+      "type": "route",
+      "uuid": "f15d5def-37ee-4b42-b711-5b039314b20d"
+    },
+    {
+      "type": "route",
+      "uuid": "af4e696f-e232-4336-bc00-4d076621ec01"
+    },
+    {
+      "type": "route",
+      "uuid": "e0642656-978f-4f25-b6c3-24fc2e9213f2"
+    },
+    {
+      "type": "route",
+      "uuid": "73285b19-499a-46c9-90ad-78d3f78c14a9"
+    },
+    {
+      "type": "route",
+      "uuid": "e6c79c73-901f-4a73-84d2-2b59070636ea"
+    },
+    {
+      "type": "route",
+      "uuid": "68427581-5eb0-4f7d-a0f4-be7d35e13696"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../playlist.sqlite3"
+}
+
+model albumSongs {
+  id      String @id
+  albumId String
+  songId  String
+  songs   songs  @relation(fields: [songId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  albums  albums @relation(fields: [albumId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model albums {
+  id          String       @id
+  name        String
+  description String?
+  albumSongs  albumSongs[]
+  userAlbums  userAlbums[]
+}
+
+model artists {
+  id          String  @id
+  name        String
+  description String?
+  songs       songs[]
+}
+
+model songs {
+  id          String       @id
+  name        String
+  description String?
+  artistId    String
+  albumSongs  albumSongs[]
+  artists     artists      @relation(fields: [artistId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model users {
+  id         String       @id
+  nickname   String       @unique(map: "sqlite_autoindex_users_1")
+  password   String
+  adminFlag  Int?
+  userAlbums userAlbums[]
+}
+
+model userAlbums {
+  id      String @id
+  albumId String
+  userId  String
+  users   users  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  albums  albums @relation(fields: [albumId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
